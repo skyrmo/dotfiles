@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Install Homebrew if not already installed
 if ! command -v brew &> /dev/null; then
@@ -31,8 +31,10 @@ mkdir -p ~/Developer
 git config --global user.name "Skyrmo"
 git config --global user.email "owaingskyrme@gmail.com"
 
+brew install zsh-syntax-highlighting zsh-autosuggestions
+
 # Create .zshrc configuration
-cat > ~/.zshrc << 'EOL'
+cat >> ~/.zshrc << 'EOL'
 # Path exports
 export PATH="/usr/local/bin:$PATH"
 
@@ -46,42 +48,51 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 EOL
 
-brew install zsh-syntax-highlighting zsh-autosuggestions
-
 # Install Starship
-curl -sS https://starship.rs/install.sh | sh
+brew install starship
 
 # Add Starship to .zshrc
-cat >> ~/.zshrc << 'EOL'
-
-# Initialize Starship prompt
-eval "$(starship init zsh)"
-EOL
+if ! grep -q 'starship init zsh' ~/.zshrc; then
+    echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+fi
 
 # Create config directory if it doesn't exist
 mkdir -p ~/.config
 
 # Symlink starship.toml from dotfiles to .config
-ln -sf "$PWD/starship.toml" ~/.config/starship.toml
+if [[ -f "$PWD/starship.toml" ]]; then
+    ln -sf "$PWD/starship.toml" ~/.config/starship.toml
+fi
 
 ZED_CONFIG_DIR="$HOME/.config/zed"
 mkdir -p "$ZED_CONFIG_DIR"
 
 # Copy your settings JSON into the Zed config folder
-echo "Copying settings into Zed configuration..."
-cp ./zed-settings.json "$ZED_CONFIG_DIR/settings.json"
+if [[ -f "./zed-settings.json" ]]; then
+    cp ./zed-settings.json "$ZED_CONFIG_DIR/settings.json"
+    echo "Zed settings copied successfully."
+else
+    echo "Zed settings file not found. Skipping copy."
+fi
 
+# Copy your keymaps JSON into the Zed config folder
+if [[ -f "./zed-keymap.json" ]]; then
+    cp ./zed-keymap.json "$ZED_CONFIG_DIR/keymap.json"
+    echo "Zed key bindings copied successfully."
+else
+    echo "Zed key bindings file not found. Skipping copy."
+fi
 
-killall Finder
-killall Dock
 
 # installs nvm (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.zshrc
+
+source ~/.zshrc
 
 # download and install Node.js (you may need to restart the terminal)
 nvm install 22
-
-
-
 
 echo "Setup complete! Please restart your computer for all changes to take effect."
