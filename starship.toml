@@ -1,0 +1,34 @@
+# A minimal left prompt
+format = """$character"""
+
+# move the rest of the prompt to the right
+right_format = """
+    $directory\
+    $git_branch\
+    $git_state\
+    $git_status\
+    $python\
+    $cmd_duration\
+    $line_break\
+"""
+
+[character]
+success_symbol = '[🐳]()'
+error_symbol = '[🪼]()'
+
+[directory]
+style = "cyan"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ' '
+truncation_length = 3
+truncation_symbol = '…'
+ignore_branches = ['master', 'main']
+style = "bright-black"
+
+[python]
+symbol = ' '
+format = 'via[${symbol}(\($virtualenv\))]($style) '
+style = "bright-yellow"

@@ -1,0 +1,96 @@
+{
+    "features": {
+        "inline_completion_provider": "none"
+    },
+    "assistant": {
+        "default_model": {
+            "provider": "zed.dev",
+            "model": "claude-3-5-sonnet-latest"
+        },
+        "version": "2",
+        "dock": "right"
+    },
+
+    "jupyter": {
+        "enabled": false,
+        "dock": "left"
+    },
+
+    "chat_panel": {
+        "button": false
+    },
+
+    "collaboration_panel": {
+        "button": false
+    },
+
+    "notification_panel": {
+        "button": false
+    },
+
+    "theme": "Rosé Pine Moon",
+    "telemetry": {
+        "metrics": false
+    },
+
+    "ui_font_size": 16,
+    "ui_font_family": "iA Writer Duo V",
+    "preferred_line_length": 80,
+    "format_on_save": "on",
+    "tab_size": 4,
+    "buffer_font_size": 18,
+    "buffer_font_family": "JetBrains Mono",
+    "buffer_font_features": {
+        "liga": true
+    },
+
+    "buffer_line_height": {
+        "custom": 1.44
+    },
+
+    "show_whitespaces": "selection",
+    "terminal": {
+        "font_size": 14,
+        "dock": "right",
+        "working_directory": "current_project_directory"
+    },
+    "git": {
+        "inline_blame": {
+            "enabled": false
+        }
+    },
+    "inlay_hints": {
+        "enabled": true,
+        "show_type_hints": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true
+    },
+    "lsp": {
+        "rust-analyzer": {
+            "initialization_options": {
+                "inlayHints": {
+                    "maxLength": null,
+                    "lifetimeElisionHints": {
+                        "useParameterNames": true,
+                        "enable": "skip_trivial"
+                    },
+                    "closureReturnTypeHints": {
+                        "enable": "always"
+                    }
+                }
+            }
+        }
+    },
+
+    "experimental.theme_overrides": {
+        "hint": "#565e6eff",
+        "syntax": {
+            "comment": {
+                "color": "#404652ff"
+            },
+            "string": {
+                "color": "#dad599ff"
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+# Linux folder attributes (Dolphin) and PyCharm metadata.
+.idea/
+
+.directory/
+
+# macOS folder attributes. 
+.DS_Store
