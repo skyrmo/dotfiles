@@ -95,4 +95,6 @@ source ~/.zshrc
 # download and install Node.js (you may need to restart the terminal)
 nvm install 22
 
+
+
 echo "Setup complete! Please restart your computer for all changes to take effect."
