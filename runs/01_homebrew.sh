@@ -22,6 +22,7 @@ brew install --cask spotify \
     ogdesign-eagle \
     obsidian \
     firefox@developer-edition \
+    google-chrome@canary \
     ghostty \
     zed \
     starship

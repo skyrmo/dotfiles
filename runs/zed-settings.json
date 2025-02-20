@@ -1,7 +1,9 @@
 {
     "features": {
-        "inline_completion_provider": "none"
+        "edit_prediction_provider": "zed"
     },
+    "icon_theme": "Zed (Default)",
+
     "assistant": {
         "default_model": {
             "provider": "zed.dev",
@@ -28,7 +30,7 @@
         "button": false
     },
 
-    "theme": "Rosé Pine Moon",
+    "theme": "One Dark",
     "telemetry": {
         "metrics": false
     },
@@ -82,15 +84,54 @@
         }
     },
 
+    // Scrollbar related settings
+    "scrollbar": {
+        // When to show the scrollbar in the editor.
+        // This setting can take four values:
+        //
+        // 1. Show the scrollbar if there's important information or
+        //    follow the system's configured behavior (default):
+        //   "auto"
+        // 2. Match the system's configured behavior:
+        //    "system"
+        // 3. Always show the scrollbar:
+        //    "always"
+        // 4. Never show the scrollbar:
+        //    "never"
+        "show": "auto",
+        // Whether to show cursor positions in the scrollbar.
+        "cursors": true,
+        // Whether to show git diff indicators in the scrollbar.
+        "git_diff": false,
+        // Whether to show buffer search results in the scrollbar.
+        "search_results": false,
+        // Whether to show selected symbol occurrences in the scrollbar.
+        "selected_symbol": true,
+        // Which diagnostic indicators to show in the scrollbar:
+        //  - "none" or false: do not show diagnostics
+        //  - "error": show only errors
+        //  - "warning": show only errors and warnings
+        //  - "information": show only errors, warnings, and information
+        //  - "all" or true: show all diagnostics
+        "diagnostics": "none",
+        /// Forcefully enable or disable the scrollbar for each axis
+        "axes": {
+            /// When false, forcefully disables the horizontal scrollbar. Otherwise, obey other settings.
+            "horizontal": true,
+            /// When false, forcefully disables the vertical scrollbar. Otherwise, obey other settings.
+            "vertical": true
+        }
+    },
+
     "experimental.theme_overrides": {
         "hint": "#565e6eff",
         "syntax": {
             "comment": {
                 "color": "#404652ff"
-            },
-            "string": {
-                "color": "#dad599ff"
             }
+            // "string": {
+            //     "color": "#dad599ff"
+            // }
         }
     }
 }
