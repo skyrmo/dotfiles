@@ -15,16 +15,17 @@ brew upgrade
 # Install essential command line tools
 brew install git \
     zsh-syntax-highlighting \
-    zsh-autosuggestions
+    zsh-autosuggestions \
+    starship
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
+    adguard \
     ogdesign-eagle \
     obsidian \
-    firefox@developer-edition \
     google-chrome@canary \
     ghostty \
-    zed \
-    starship
+    zed
+
 
 echo "Finished installing Homebrew & apps."
