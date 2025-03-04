@@ -25,6 +25,7 @@ brew install --cask spotify \
     obsidian \
     google-chrome@canary \
     ghostty \
+    nordvpn \
     zed
 
 
