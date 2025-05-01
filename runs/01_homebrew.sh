@@ -20,10 +20,9 @@ brew install git \
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
-    adguard \
+    brave-browser \
     ogdesign-eagle \
     obsidian \
-    google-chrome@canary \
     ghostty \
     nordvpn \
     zed
