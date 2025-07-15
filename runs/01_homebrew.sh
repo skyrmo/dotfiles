@@ -25,7 +25,8 @@ brew install --cask spotify \
     obsidian \
     ghostty \
     nordvpn \
-    zed
+    zed \
+    rar
 
 
 echo "Finished installing Homebrew & apps."
