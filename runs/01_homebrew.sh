@@ -16,7 +16,8 @@ brew upgrade
 brew install git \
     zsh-syntax-highlighting \
     zsh-autosuggestions \
-    starship
+    starship \
+    rar
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
@@ -25,8 +26,7 @@ brew install --cask spotify \
     obsidian \
     ghostty \
     nordvpn \
-    zed \
-    rar
+    zed
 
 
 echo "Finished installing Homebrew & apps."
