@@ -124,14 +124,14 @@
     },
 
     "experimental.theme_overrides": {
-        "hint": "#565e6eff",
+        "hint": "#464745ff",
         "syntax": {
             "comment": {
-                "color": "#404652ff"
+                "color": "#3F454Fff"
+            },
+            "string": {
+                "color": "#EDF8A2ff"
             }
-            // "string": {
-            //     "color": "#dad599ff"
-            // }
         }
     }
 }
