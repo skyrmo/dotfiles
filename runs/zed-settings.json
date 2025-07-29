@@ -8,8 +8,10 @@
         "edit_prediction_provider": "zed"
     },
 
+    // "icon_theme": "Zed (Default)",
+
     "agent": {
-        "default_profile": "write",
+        "default_profile": "ask",
         "play_sound_when_agent_done": false,
         "default_model": {
             "provider": "zed.dev",
@@ -134,10 +136,11 @@
     },
 
     "experimental.theme_overrides": {
-        "hint": "#474646ff",
+        "editor.active_line.background": "#333A47",
+        "hint": "#3A4D4Cff",
         "syntax": {
             "comment": {
-                "color": "#3F4652ff"
+                "color": "#3D4454ff"
             },
             "string": {
                 "color": "#F1DEB9ff"
