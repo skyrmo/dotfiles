@@ -1,4 +1,12 @@
 {
+    "auto_install_extensions": {
+        "html": true,
+        "nord": true,
+        "wgsl": true,
+        "vue": true,
+        "toml": true
+    },
+
     "edit_predictions": {
         "mode": "subtle",
         "enabled_in_text_threads": false
@@ -7,8 +15,6 @@
     "features": {
         "edit_prediction_provider": "zed"
     },
-
-    // "icon_theme": "Zed (Default)",
 
     "agent": {
         "default_profile": "ask",
@@ -20,10 +26,10 @@
         "dock": "right"
     },
 
-    "jupyter": {
-        "enabled": false,
-        "dock": "right"
-    },
+    // "jupyter": {
+    //     "enabled": false,
+    //     "dock": "right"
+    // },
 
     "chat_panel": {
         "button": "never"
