@@ -3,8 +3,7 @@
         "html": true,
         "nord": true,
         "wgsl": true,
-        "vue": true,
-        "toml": true
+        "vue": true
     },
 
     "edit_predictions": {
@@ -26,11 +25,6 @@
         "dock": "right"
     },
 
-    // "jupyter": {
-    //     "enabled": false,
-    //     "dock": "right"
-    // },
-
     "chat_panel": {
         "button": "never"
     },
@@ -46,6 +40,7 @@
     "theme": "Nord",
 
     "telemetry": {
+        "diagnostics": false,
         "metrics": false
     },
 
@@ -143,10 +138,10 @@
 
     "experimental.theme_overrides": {
         "editor.active_line.background": "#333A47",
-        "hint": "#3A4D4Cff",
+        "hint": "#334D4Cff",
         "syntax": {
             "comment": {
-                "color": "#3D4454ff"
+                "color": "#3D4452ff"
             },
             "string": {
                 "color": "#F1DEB9ff"
