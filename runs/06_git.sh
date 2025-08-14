@@ -1,39 +1,40 @@
 #!/bin/zsh
 
-echo "Setting up GitHub SSH..."
+echo "Setting up Git and GitHub SSH..."
 
 # Update git to the latest version
-echo "Installing Git..."
+echo "Installing/updating Git..."
 brew install git
 
 # Install the GitHub CLI
 echo "Installing GitHub CLI..."
 brew install gh
 
+# Create .ssh directory if it doesn't exist
+mkdir -p ~/.ssh
 
+# Create a new SSH key (will prompt for passphrase)
 echo "Creating new SSH key..."
+echo "Press Enter when prompted for passphrase if you don't want one"
 ssh-keygen -t ed25519 -C "owaingskyrme@gmail.com" -f ~/.ssh/id_ed25519
 
-
-# Create SSH config file if it doesn't exist
-if [[ ! -f ~/.ssh/config ]]; then
-    echo "Creating SSH config file..."
-    touch ~/.ssh/config
-fi
-
-# Check if GitHub host entry already exists in config
-if ! grep -q "Host github.com" ~/.ssh/config 2>/dev/null; then
-    echo "Adding GitHub configuration to SSH config..."
-    cat >> ~/.ssh/config << 'EOL'
-
+# Create SSH config file
+echo "Creating SSH config file..."
+cat > ~/.ssh/config << 'EOL'
 Host github.com
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_ed25519
 EOL
-else
-    echo "GitHub SSH config already exists."
-fi
+
+# Set correct permissions for SSH files
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/config
+chmod 600 ~/.ssh/id_ed25519
+chmod 644 ~/.ssh/id_ed25519.pub
+
+# Start ssh-agent if needed
+eval "$(ssh-agent -s)"
 
 # Add private key to the ssh-agent
 echo "Adding SSH key to ssh-agent..."
@@ -59,13 +60,7 @@ read
 
 # Test SSH connection to GitHub
 echo "Testing SSH connection to GitHub..."
-ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"
-if [ $? -eq 0 ]; then
-    echo "SSH connection to GitHub successful!"
-else
-    echo "SSH test failed. You may need to add your SSH key to GitHub."
-    echo "Running ssh test again for debugging:"
-    ssh -T git@github.com
-fi
+ssh -T git@github.com
 
+echo ""
 echo "Git and GitHub SSH setup complete!"
