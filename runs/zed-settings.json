@@ -36,7 +36,7 @@
         "button": false
     },
 
-    "theme": "Nord",
+    "theme": "One Dark",
 
     "telemetry": {
         "diagnostics": false,
@@ -136,15 +136,23 @@
     },
 
     "experimental.theme_overrides": {
-        "editor.active_line.background": "#333A47",
         "hint": "#334D4Cff",
         "syntax": {
             "comment": {
-                "color": "#3D4452ff"
+                "color": "#3E4552ff"
             },
             "string": {
                 "color": "#F1DEB9ff"
+            },
+            "variable": {
+                "color": "#E2E0DA"
             }
+            // "punctuation": {
+            //     "color": "#CAD0DBff"
+            // },
+            // "operator": {
+            //     "color": "#CAD0DBff"
+            // }
         }
     }
 }

@@ -17,7 +17,8 @@ brew install git \
     zsh-syntax-highlighting \
     zsh-autosuggestions \
     starship \
-    unar
+    unar \
+    nvm
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
