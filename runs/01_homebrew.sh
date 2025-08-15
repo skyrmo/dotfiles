@@ -25,7 +25,6 @@ brew install --cask spotify \
     ogdesign-eagle \
     obsidian \
     ghostty \
-    nordvpn \
     zed
 
 
