@@ -1,4 +1,14 @@
 {
+    "outline_panel": {
+        "dock": "left"
+    },
+
+    "bottom_dock_layout": "contained", // "left_aligned" if need more space on left.
+
+    "debugger": {
+        "dock": "bottom"
+    },
+
     "auto_install_extensions": {
         "html": true,
         "wgsl": true,
@@ -19,7 +29,7 @@
         "play_sound_when_agent_done": false,
         "default_model": {
             "provider": "zed.dev",
-            "model": "claude-sonnet-4"
+            "model": "claude-opus-4-1"
         },
         "dock": "right"
     },
@@ -36,7 +46,7 @@
         "button": false
     },
 
-    "theme": "One Dark",
+    "theme": "Sky CB Dark",
 
     "telemetry": {
         "diagnostics": false,
@@ -63,7 +73,7 @@
     "agent_font_size": 16,
     "terminal": {
         "font_size": 14,
-        "dock": "right",
+        "dock": "bottom",
         "working_directory": "current_project_directory"
     },
 
@@ -72,12 +82,8 @@
             "enabled": false
         }
     },
-
     "inlay_hints": {
-        "enabled": true,
-        "show_type_hints": true,
-        "show_parameter_hints": true,
-        "show_other_hints": true
+        "enabled": false
     },
     "lsp": {
         "rust-analyzer": {
@@ -135,24 +141,46 @@
         }
     },
 
-    "experimental.theme_overrides": {
-        "hint": "#334D4Cff",
-        "syntax": {
-            "comment": {
-                "color": "#3E4552ff"
-            },
-            "string": {
-                "color": "#F1DEB9ff"
-            },
-            "variable": {
-                "color": "#E2E0DA"
+    // "experimental.theme_overrides": {
+    //     "hint": "#334D4Cff",
+    //     "syntax": {
+    //         "comment": {
+    //             "color": "#3E4552ff"
+    //         },
+    //         "string": {
+    //             "color": "#F1DEB9ff"
+    //         },
+    //         "variable": {
+    //             "color": "#E2E0DA"
+    //         }
+    //         // "punctuation": {
+    //         //     "color": "#CAD0DBff"
+    //         // },
+    //         // "operator": {
+    //         //     "color": "#CAD0DBff"
+    //         // }
+    //     }
+    // }
+    "theme_overrides": {
+        "One Dark": {
+            "hint": "#334D4Cff",
+            "syntax": {
+                "comment": {
+                    "color": "#3E4552ff"
+                },
+                "string": {
+                    "color": "#F1DEB9ff"
+                },
+                "variable": {
+                    "color": "#E2E0DA"
+                }
+                // "punctuation": {
+                //     "color": "#CAD0DBff"
+                // },
+                // "operator": {
+                //     "color": "#CAD0DBff"
+                // }
             }
-            // "punctuation": {
-            //     "color": "#CAD0DBff"
-            // },
-            // "operator": {
-            //     "color": "#CAD0DBff"
-            // }
         }
     }
 }

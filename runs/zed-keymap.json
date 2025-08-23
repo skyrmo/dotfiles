@@ -2,7 +2,42 @@
     {
         "context": "Workspace",
         "bindings": {
-            "cmd-j": "workspace::ToggleRightDock"
+            "ctrl-c": "workspace::ToggleRightDock"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-z": "workspace::ToggleLeftDock"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-x": "workspace::ToggleBottomDock"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-b": "outline_panel::ToggleFocus"
+        }
+    },
+    {
+        "bindings": {
+            "ctrl-space": "editor::ToggleFocus"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-v": "project_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "AgentPanel",
+        "bindings": {
+            "ctrl-v": "project_panel::ToggleFocus"
         }
     }
 ]
