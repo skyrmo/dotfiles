@@ -1,6 +1,43 @@
 {
     "outline_panel": {
-        "dock": "left"
+        "button": true,
+        "default_width": 300,
+        "dock": "left",
+        "file_icons": true,
+        "folder_icons": true,
+        "git_status": true,
+        "indent_size": 20,
+        "auto_reveal_entries": true,
+        "auto_fold_dirs": true,
+        "indent_guides": {
+            "show": "always"
+        },
+        "scrollbar": {
+            "show": "never"
+        }
+    },
+
+    "project_panel": {
+        "button": true,
+        "default_width": 240,
+        "dock": "left",
+        "entry_spacing": "comfortable",
+        "file_icons": true,
+        "folder_icons": true,
+        "git_status": true,
+        "indent_size": 20,
+        "auto_reveal_entries": true,
+        "auto_fold_dirs": true,
+        "scrollbar": {
+            "show": null
+        },
+        "sticky_scroll": true,
+        "show_diagnostics": "all",
+        "indent_guides": {
+            "show": "always"
+        },
+        "hide_root": false,
+        "starts_open": true
     },
 
     "bottom_dock_layout": "contained", // "left_aligned" if need more space on left.
@@ -25,17 +62,13 @@
     },
 
     "agent": {
-        "default_profile": "ask",
+        "default_profile": "write",
         "play_sound_when_agent_done": false,
         "default_model": {
             "provider": "zed.dev",
-            "model": "claude-opus-4-1"
+            "model": "claude-sonnet-4"
         },
         "dock": "right"
-    },
-
-    "chat_panel": {
-        "button": "never"
     },
 
     "collaboration_panel": {
@@ -46,7 +79,11 @@
         "button": false
     },
 
-    "theme": "Sky CB Dark",
+    "theme": {
+        "mode": "dark",
+        "dark": "One Dark",
+        "light": "One Light"
+    },
 
     "telemetry": {
         "diagnostics": false,
@@ -56,7 +93,7 @@
     "ui_font_size": 16,
     "ui_font_family": "iA Writer Duo V",
 
-    "preferred_line_length": 80,
+    "preferred_line_length": 100,
     "format_on_save": "on",
     "tab_size": 4,
 
@@ -68,7 +105,8 @@
     "buffer_line_height": {
         "custom": 1.4
     },
-
+    // "buffer_line_height": "standard",
+    // "buffer_line_height": "comfortable",
     "show_whitespaces": "selection",
     "agent_font_size": 16,
     "terminal": {
@@ -80,11 +118,14 @@
     "git": {
         "inline_blame": {
             "enabled": false
-        }
+        },
+        "git_gutter": "tracked_files"
     },
+
     "inlay_hints": {
         "enabled": false
     },
+
     "lsp": {
         "rust-analyzer": {
             "initialization_options": {
@@ -141,26 +182,22 @@
         }
     },
 
-    // "experimental.theme_overrides": {
-    //     "hint": "#334D4Cff",
-    //     "syntax": {
-    //         "comment": {
-    //             "color": "#3E4552ff"
-    //         },
-    //         "string": {
-    //             "color": "#F1DEB9ff"
-    //         },
-    //         "variable": {
-    //             "color": "#E2E0DA"
-    //         }
-    //         // "punctuation": {
-    //         //     "color": "#CAD0DBff"
-    //         // },
-    //         // "operator": {
-    //         //     "color": "#CAD0DBff"
-    //         // }
-    //     }
-    // }
+    "toolbar": {
+        "breadcrumbs": true,
+        "quick_actions": true,
+        "selections_menu": true,
+        "agent_review": true,
+        "code_actions": false
+    },
+
+    "diagnostics": {
+        "include_warnings": true,
+        "inline": {
+            "enabled": true,
+            "max_severity": "off"
+        }
+    },
+
     "theme_overrides": {
         "One Dark": {
             "hint": "#334D4Cff",
