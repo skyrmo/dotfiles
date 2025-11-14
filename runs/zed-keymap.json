@@ -39,5 +39,35 @@
         "bindings": {
             "ctrl-v": "project_panel::ToggleFocus"
         }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-cmd-b": "editor::MoveLeft"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-shift-v": null
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-v": "project_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-b": "outline_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "!Terminal",
+        "bindings": {
+            "ctrl-c": "workspace::ToggleRightDock"
+        }
     }
 ]

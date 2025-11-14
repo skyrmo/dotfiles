@@ -13,8 +13,8 @@ right_format = """
 """
 
 [character]
-success_symbol = '[〄]()'
-error_symbol = '[⚠︎]()'
+success_symbol = '[⨀]()'
+error_symbol = '[⌀]()'
 
 [directory]
 style = "cyan"
