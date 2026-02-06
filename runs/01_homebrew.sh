@@ -19,7 +19,8 @@ brew install git \
     starship \
     unar \
     nvm \
-    pyenv
+    pyenv \
+    gh
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
