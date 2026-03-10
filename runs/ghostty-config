@@ -1,4 +1,5 @@
 theme = One Half Dark
+font-family = TX-02 SemiCondensed
 font-size = 16
 shell-integration-features = no-cursor
 cursor-style = block
