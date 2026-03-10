@@ -4,8 +4,8 @@
     "agent_servers": {
         "claude": {
             "favorite_config_option_values": {
-                "mode": ["default", "plan"],
-                "model": ["opus"]
+                "model": ["opus"],
+                "mode": ["default", "plan"]
             },
             "default_model": "default",
             "default_mode": "plan",
@@ -38,7 +38,7 @@
     "title_bar": {
         "show_menus": false,
         "show_sign_in": true,
-        "show_user_picture": false,
+        "show_user_picture": true,
         "show_onboarding_banner": false,
         "show_project_items": true,
         "show_branch_name": true,
@@ -147,13 +147,17 @@
     "format_on_save": "on",
     "tab_size": 4,
 
-    "buffer_font_size": 16.0,
+    "buffer_font_size": 17.0,
     // "buffer_font_family": "TX-02",
     // "buffer_font_family": "TX-02 SemiCondensed",
+    // "buffer_font_family": "Syke Mono",
     "buffer_font_family": "JetBrains Mono",
     "buffer_font_weight": 380.0,
+    //
     "buffer_font_features": {
         "liga": true
+        // "cv12": true, // downstroke on u
+        // "cv18": true, // cool 2 6 and 9
     },
 
     "buffer_line_height": {
@@ -265,17 +269,17 @@
 
     "toolbar": {
         "breadcrumbs": true,
-        "quick_actions": false,
+        "quick_actions": true,
         "selections_menu": false,
         "agent_review": true,
-        "code_actions": false
+        "code_actions": true
     },
 
     "diagnostics": {
         "include_warnings": true,
         "inline": {
-            "enabled": true,
-            "max_severity": "warning"
+            "enabled": false,
+            "max_severity": "error"
         }
     },
 
@@ -301,12 +305,26 @@
                     "font_style": "italic"
                 },
 
+                "keyword": {
+                    // "color": "#FF0000FF",
+                    // "font_style": "italic",
+                    // "font_weight": 200,
+                },
+
+                "type": {
+                    // "color": "#87E3C3FF",
+                    // "font_style": "italic",
+                    // "font_weight": 200,
+                },
+
                 "string": {
                     "color": "#F1DEB9ff"
                 },
+
                 "variable": {
                     "color": "#E2E0DA"
                 },
+
                 "function": {
                     // "color": "#FF0000FF",
                     // "font_style": "italic",
