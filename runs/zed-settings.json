@@ -1,15 +1,26 @@
 {
+    "prettier": {
+        "allowed": true
+    },
+    "soft_wrap": "bounded",
+    "hard_tabs": false,
+    "show_wrap_guides": true,
+    "redact_private_values": false,
+    "git_panel": {
+        "dock": "left"
+    },
     "icon_theme": "Zed (Default)",
     "text_rendering_mode": "platform_default",
     "agent_servers": {
-        "claude": {
+        "claude-acp": {
+            "type": "registry",
+            "default_mode": "plan",
+            "default_model": "default",
+            "favorite_models": ["sonnet"],
             "favorite_config_option_values": {
                 "model": ["opus"],
                 "mode": ["default", "plan"]
-            },
-            "default_model": "default",
-            "default_mode": "plan",
-            "favorite_models": ["sonnet"]
+            }
         }
     },
     "session": {
@@ -32,23 +43,27 @@
     },
 
     "tab_bar": {
+        "show_pinned_tabs_in_separate_row": false,
+        "show_nav_history_buttons": true,
         "show": true
     },
 
     "title_bar": {
+        "show_user_menu": true,
+        "show_branch_status_icon": true,
         "show_menus": false,
         "show_sign_in": true,
         "show_user_picture": true,
         "show_onboarding_banner": false,
         "show_project_items": true,
-        "show_branch_name": true,
-        "show_branch_icon": true
+        "show_branch_name": true
     },
     "search": {
         "button": true
     },
     "status_bar": {
-        "cursor_position_button": false,
+        "show_active_file": false,
+        "cursor_position_button": true,
         "active_language_button": true
     },
     "relative_line_numbers": "disabled",
@@ -78,8 +93,9 @@
     },
 
     "project_panel": {
+        "hide_hidden": false,
         "indent_size": 18.0,
-        "hide_gitignore": false,
+        "hide_gitignore": true,
         "button": true,
         "default_width": 240,
         "dock": "left",
@@ -126,11 +142,12 @@
             "provider": "zed.dev",
             "model": "claude-sonnet-4-5"
         },
-        "default_profile": "write",
+        "default_profile": "ask",
         "model_parameters": []
     },
 
     "collaboration_panel": {
+        "dock": "left",
         "button": false
     },
 
@@ -143,7 +160,7 @@
         "metrics": false
     },
 
-    "preferred_line_length": 80,
+    "preferred_line_length": 90,
     "format_on_save": "on",
     "tab_size": 4,
 
@@ -182,7 +199,7 @@
         "font_size": 15,
         // "font_family": "TX-02 Retina",
         "font_family": "TX-02 Condensed",
-        "dock": "bottom",
+        "dock": "right",
         "working_directory": "current_project_directory"
     },
 
@@ -208,6 +225,7 @@
     },
 
     "inlay_hints": {
+        "show_background": false,
         "enabled": false
     },
 
@@ -276,6 +294,7 @@
     },
 
     "diagnostics": {
+        "button": true,
         "include_warnings": true,
         "inline": {
             "enabled": false,
