@@ -20,7 +20,8 @@ brew install git \
     unar \
     nvm \
     pyenv \
-    gh
+    gh \
+    pnpm
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
