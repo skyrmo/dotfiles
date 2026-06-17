@@ -1,4 +1,5 @@
 {
+    "cli_default_open_behavior": "new_window",
     "prettier": {
         "allowed": true
     },
@@ -95,7 +96,7 @@
     "project_panel": {
         "hide_hidden": false,
         "indent_size": 18.0,
-        "hide_gitignore": true,
+        "hide_gitignore": false,
         "button": true,
         "default_width": 240,
         "dock": "left",
@@ -137,12 +138,15 @@
     },
 
     "agent": {
+        "favorite_models": [],
+        "sidebar_side": "right",
         "dock": "right",
         "default_model": {
+            "enable_thinking": false,
             "provider": "zed.dev",
-            "model": "claude-sonnet-4-5"
+            "model": "claude-haiku-4-5"
         },
-        "default_profile": "ask",
+        "default_profile": "write",
         "model_parameters": []
     },
 
@@ -160,7 +164,7 @@
         "metrics": false
     },
 
-    "preferred_line_length": 90,
+    "preferred_line_length": 100,
     "format_on_save": "on",
     "tab_size": 4,
 
@@ -199,7 +203,7 @@
         "font_size": 15,
         // "font_family": "TX-02 Retina",
         "font_family": "TX-02 Condensed",
-        "dock": "right",
+        "dock": "bottom",
         "working_directory": "current_project_directory"
     },
 
