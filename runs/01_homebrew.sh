@@ -22,7 +22,8 @@ brew install git \
     pyenv \
     gh \
     pnpm \
-    btop
+    btop \
+    mo
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
