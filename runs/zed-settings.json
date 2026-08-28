@@ -14,12 +14,18 @@
     "text_rendering_mode": "platform_default",
     "agent_servers": {
         "claude-acp": {
+            "default_config_options": {
+                "model": "sonnet",
+                "effort": "high",
+                "mode": "auto"
+            },
             "type": "registry",
             "default_mode": "plan",
             "default_model": "default",
             "favorite_models": ["sonnet"],
             "favorite_config_option_values": {
-                "model": ["opus"],
+                "effort": ["high"],
+                "model": ["sonnet"],
                 "mode": ["default", "plan"]
             }
         }
@@ -27,7 +33,7 @@
     "session": {
         "trust_all_worktrees": true
     },
-    "theme": "One Dark",
+    "theme": "Nord Dark",
     "disable_ai": false,
     "audio": {
         "experimental.legacy_audio_compatible": false,
@@ -352,6 +358,34 @@
                     // "color": "#FF0000FF",
                     // "font_style": "italic",
                     // "font_weight": 350,
+                }
+            }
+        },
+
+        "Nord Dark": {
+            "created": "#56CCF2", // additions — blue
+            // "created.background": "#56CCF215",
+            // "created.border": "#56CCF2",
+
+            // "deleted": "#EE7733", // deletions — orange
+            // "deleted.background": "#EE773315",
+            // "deleted.border": "#EE7733",
+
+            "modified": "#F1DEB9ff", // modifications — yellow
+            // "modified.background": "#F1DEB915",
+            // "modified.border": "#F1DEB9ff",
+
+            "syntax": {
+                "comment": {
+                    "color": "#454B64FF"
+                },
+                "string": {
+                    "color": "#D2DDBBFF"
+                },
+                "type": {
+                    "color": "#60A1A1FF"
+                    // "font_style": "italic",
+                    // "font_weight": 300,
                 }
             }
         }
