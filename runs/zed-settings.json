@@ -40,9 +40,6 @@
         "experimental.denoise": false,
         "experimental.auto_speaker_volume": false
     },
-    // "active_pane_modifiers": {
-    //     "border_size": 0.0,
-    // },
     "centered_layout": {},
     "tabs": {
         "file_icons": true,
@@ -125,7 +122,7 @@
         "bold_folder_labels": false
     },
 
-    "bottom_dock_layout": "contained", // "left_aligned" if need more space on left.
+    "bottom_dock_layout": "contained",
 
     "debugger": {
         "dock": "right"
@@ -175,16 +172,10 @@
     "tab_size": 4,
 
     "buffer_font_size": 17.0,
-    // "buffer_font_family": "TX-02",
-    // "buffer_font_family": "TX-02 SemiCondensed",
-    // "buffer_font_family": "Syke Mono",
     "buffer_font_family": "JetBrains Mono",
     "buffer_font_weight": 380.0,
-    //
     "buffer_font_features": {
         "liga": true
-        // "cv12": true, // downstroke on u
-        // "cv18": true, // cool 2 6 and 9
     },
 
     "buffer_line_height": {
@@ -192,9 +183,6 @@
     },
 
     "agent_ui_font_size": 15.0,
-
-    // "ui_font_size": 16.0,
-    // "ui_font_family": "TX-02 Condensed",
 
     "ui_font_size": 15.0,
     "ui_font_family": "TX-02 SemiCondensed",
@@ -207,7 +195,6 @@
         },
         "button": true,
         "font_size": 15,
-        // "font_family": "TX-02 Retina",
         "font_family": "TX-02 Condensed",
         "dock": "bottom",
         "working_directory": "current_project_directory"
@@ -223,7 +210,7 @@
         "inline_blame": {
             "enabled": false
         },
-        "git_gutter": "tracked_files" // weather to show git changes in the gutter
+        "git_gutter": "tracked_files"
     },
 
     "gutter": {
@@ -256,41 +243,15 @@
         }
     },
 
-    // Scrollbar related settings
     "scrollbar": {
-        // When to show the scrollbar in the editor.
-        // This setting can take four values:
-        //
-        // 1. Show the scrollbar if there's important information or
-        //    follow the system's configured behavior (default):
-        //   "auto"
-        // 2. Match the system's configured behavior:
-        //    "system"
-        // 3. Always show the scrollbar:
-        //    "always"
-        // 4. Never show the scrollbar:
-        //    "never"
         "show": "auto",
-        // Whether to show cursor positions in the scrollbar.
         "cursors": false,
-        // Whether to show git diff indicators in the scrollbar.
         "git_diff": false,
-        // Whether to show buffer search results in the scrollbar.
         "search_results": false,
-        // Whether to show selected symbol occurrences in the scrollbar.
         "selected_symbol": true,
-        // Which diagnostic indicators to show in the scrollbar:
-        //  - "none" or false: do not show diagnostics
-        //  - "error": show only errors
-        //  - "warning": show only errors and warnings
-        //  - "information": show only errors, warnings, and information
-        //  - "all" or true: show all diagnostics
         "diagnostics": "error",
-        /// Forcefully enable or disable the scrollbar for each axis
         "axes": {
-            /// When false, forcefully disables the horizontal scrollbar. Otherwise, obey other settings.
             "horizontal": true,
-            /// When false, forcefully disables the vertical scrollbar. Otherwise, obey other settings.
             "vertical": true
         }
     },
@@ -334,46 +295,19 @@
                     "font_style": "italic"
                 },
 
-                "keyword": {
-                    // "color": "#FF0000FF",
-                    // "font_style": "italic",
-                    // "font_weight": 200,
-                },
-
-                "type": {
-                    // "color": "#87E3C3FF",
-                    // "font_style": "italic",
-                    // "font_weight": 200,
-                },
-
                 "string": {
                     "color": "#F1DEB9ff"
                 },
 
                 "variable": {
                     "color": "#E2E0DA"
-                },
-
-                "function": {
-                    // "color": "#FF0000FF",
-                    // "font_style": "italic",
-                    // "font_weight": 350,
                 }
             }
         },
 
         "Nord Dark": {
             "created": "#56CCF2", // additions — blue
-            // "created.background": "#56CCF215",
-            // "created.border": "#56CCF2",
-
-            // "deleted": "#EE7733", // deletions — orange
-            // "deleted.background": "#EE773315",
-            // "deleted.border": "#EE7733",
-
             "modified": "#F1DEB9ff", // modifications — yellow
-            // "modified.background": "#F1DEB915",
-            // "modified.border": "#F1DEB9ff",
 
             "syntax": {
                 "comment": {
@@ -384,8 +318,6 @@
                 },
                 "type": {
                     "color": "#60A1A1FF"
-                    // "font_style": "italic",
-                    // "font_weight": 300,
                 }
             }
         }
