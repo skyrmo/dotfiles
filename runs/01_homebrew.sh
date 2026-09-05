@@ -19,10 +19,10 @@ brew install git \
     starship \
     unar \
     nvm \
-    pyenv \
     gh \
     pnpm \
-    btop
+    btop \
+    uv
 
 # Install applications via Homebrew Cask
 brew install --cask spotify \
