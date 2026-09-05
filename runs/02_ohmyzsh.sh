@@ -11,11 +11,8 @@ cat > ~/.zshrc << 'EOL'
 # ---------- PATH (base) ----------
 export PATH="/opt/homebrew/bin:$PATH"
 
-# ---------- pyenv ----------
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
 # ---------- nvm (lazy-loaded) ----------
+export NVM_DIR="$HOME/.nvm"
 
 () {
   setopt localoptions nullglob numericglobsort
@@ -49,7 +46,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # ---------- aliases ----------
-alias py='python'
+alias py='uv run python'
 
 # ---------- zsh plugins ----------
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
@@ -58,6 +55,4 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/nu
 # ---------- prompt ----------
 eval "$(starship init zsh)"
 
-# ---------- pyenv (interactive shell) ----------
-eval "$(pyenv init -)"
 EOL

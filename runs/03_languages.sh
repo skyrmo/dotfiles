@@ -2,18 +2,17 @@
 
 echo "Setting up programming language environments..."
 
-# Source the shell configuration to ensure pyenv and nvm are available
+# Source the shell configuration to ensure uv and nvm are available
 source ~/.zprofile 2>/dev/null
 source ~/.zshrc 2>/dev/null
 
-# Install Python 3.12.0 via pyenv
-if command -v pyenv &> /dev/null; then
-    echo "Installing Python 3.12.0 via pyenv..."
-    pyenv install 3.12.0 --skip-existing
-    pyenv global 3.12.0
-    echo "Python 3.12.0 installed and set as global version."
+# Install Python 3.12 via uv
+if command -v uv &> /dev/null; then
+    echo "Installing Python 3.12 via uv..."
+    uv python install 3.12
+    echo "Python 3.12 installed via uv."
 else
-    echo "pyenv not found. Skipping Python installation."
+    echo "uv not found. Skipping Python installation."
 fi
 
 # Install Node via nvm
