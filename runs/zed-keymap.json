@@ -2,7 +2,7 @@
     {
         "context": "Workspace",
         "bindings": {
-            "cmd-shift-space": [
+            "ctrl-alt-space": [
                 "action::Sequence",
                 [
                     ["workspace::ToggleRightDock", null],
