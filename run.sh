@@ -2,7 +2,7 @@
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-grep=""
+filter=""
 dry_run="0"
 
 while [[ $# -gt 0 ]]; do
@@ -10,7 +10,7 @@ while [[ $# -gt 0 ]]; do
     if [[ "$1" == "--dry" ]]; then
         dry_run="1"
     else
-        grep="$1"
+        filter="$1"
     fi
     shift
 done
@@ -24,16 +24,36 @@ log() {
 }
 
 # Find executable files
-runs_dir=$(find "$script_dir/runs" -mindepth 1 -maxdepth 1 -type f -exec test -x {} \; -print | sort)
+scripts=()
+while IFS= read -r s; do
+    scripts+=("$s")
+done < <(find "$script_dir/runs" -mindepth 1 -maxdepth 1 -type f -exec test -x {} \; -print | sort)
 
 # If the directory is empty, notify the user
-if [[ -z "$runs_dir" ]]; then
+if [[ ${#scripts[@]} -eq 0 ]]; then
     log "No executable files found in $script_dir/runs, or try updating their permissions."
     exit 1
 fi
 
+# Narrow to the scripts whose filename contains the filter argument
+if [[ -n "$filter" ]]; then
+    matched=()
+    for s in "${scripts[@]}"; do
+        if [[ "$(basename "$s")" == *"$filter"* ]]; then
+            matched+=("$s")
+        fi
+    done
+
+    if [[ ${#matched[@]} -eq 0 ]]; then
+        log "No scripts in $script_dir/runs match \"$filter\"."
+        exit 1
+    fi
+
+    scripts=("${matched[@]}")
+fi
+
 # Iterate through executable scripts
-for s in $runs_dir; do
+for s in "${scripts[@]}"; do
     log "Running script: $s"
 
     if [[ $dry_run == "0" ]]; then

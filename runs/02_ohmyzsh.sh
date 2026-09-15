@@ -11,32 +11,15 @@ cat > ~/.zshrc << 'EOL'
 # ---------- PATH (base) ----------
 export PATH="/opt/homebrew/bin:$PATH"
 
-# ---------- nvm (lazy-loaded) ----------
-export NVM_DIR="$HOME/.nvm"
+# uv installs the `python`/`python3` shims here; without this there is no
+# `python` on PATH at all and `python3` falls back to the old system one.
+export PATH="$HOME/.local/bin:$PATH"
 
-() {
-  setopt localoptions nullglob numericglobsort
-  local ver="" dir="" dirs
-  [ -r "$NVM_DIR/alias/default" ] && ver="$(<"$NVM_DIR/alias/default")"
-  case "$ver" in
-    v[0-9]*) dir="$NVM_DIR/versions/node/$ver" ;;
-    [0-9]*)  dir="$NVM_DIR/versions/node/v$ver" ;;
-    # `node`/`stable`/`default`/unset all mean "newest installed".
-    *)       dirs=("$NVM_DIR"/versions/node/v*(/)); dir="${dirs[-1]}" ;;
-  esac
-  [ -x "$dir/bin/node" ] && export PATH="$dir/bin:$PATH"
-}
-
-# Only `nvm` itself needs the full script; node/npm/npx/pnpm are on PATH above.
-nvm() {
-  unfunction nvm
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
-
-  # Loading this after Oh My Zsh means it skips its own redundant compinit.
-  #
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-  nvm "$@"
-}
+# ---------- pnpm (also manages the global Node version) ----------
+# pnpm is the standalone Homebrew build, so it ships its own Node and can
+# install the global `node` binary into $PNPM_HOME/bin itself.
+export PNPM_HOME="$HOME/Library/pnpm"
+[ -d "$PNPM_HOME/bin" ] && export PATH="$PNPM_HOME/bin:$PATH"
 
 # ---------- Oh My Zsh ----------
 # Empty theme: starship owns the prompt, so loading an omz theme is wasted work.
@@ -46,7 +29,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # ---------- aliases ----------
-alias py='uv run python'
+alias py='uv run --no-project python'
 
 # ---------- zsh plugins ----------
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

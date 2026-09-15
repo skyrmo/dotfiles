@@ -18,7 +18,6 @@ brew install git \
     zsh-autosuggestions \
     starship \
     unar \
-    nvm \
     gh \
     pnpm \
     btop \

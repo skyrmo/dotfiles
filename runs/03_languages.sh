@@ -2,28 +2,42 @@
 
 echo "Setting up programming language environments..."
 
-# Source the shell configuration to ensure uv and nvm are available
+# Source the shell configuration to ensure uv and pnpm are available
 source ~/.zprofile 2>/dev/null
 source ~/.zshrc 2>/dev/null
 
-# Install Python 3.12 via uv
+# Install the latest stable Python via uv. Unlike pyenv, uv puts no `python` on
+# PATH unless --default is passed, which adds the `python`/`python3` shims to
+# ~/.local/bin (see the PATH line in the generated .zshrc). --force keeps this
+# re-runnable; without it a second run fails but still exits 0.
 if command -v uv &> /dev/null; then
-    echo "Installing Python 3.12 via uv..."
-    uv python install 3.12
-    echo "Python 3.12 installed via uv."
+    echo "Installing the latest Python via uv..."
+    if uv python install --default --force --preview-features python-install-default; then
+        export PATH="$HOME/.local/bin:$PATH"
+        echo "Python installed via uv: $(python --version 2>&1)"
+    else
+        echo "uv failed to install Python. Skipping Python installation."
+    fi
 else
     echo "uv not found. Skipping Python installation."
 fi
 
-# Install Node via nvm
-if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
-    echo "Installing Node.js via nvm..."
-    source "/opt/homebrew/opt/nvm/nvm.sh"
-    nvm install node
-    nvm use node
-    echo "Node.js installed via nvm."
+# Install Node via pnpm. The global bin dir must exist and be on PATH before
+# pnpm will agree to install a runtime into it. `runtime set` is the
+# replacement for the now-deprecated `env use`.
+if command -v pnpm &> /dev/null; then
+    echo "Installing Node.js (LTS) via pnpm..."
+    export PNPM_HOME="$HOME/Library/pnpm"
+    mkdir -p "$PNPM_HOME/bin"
+    export PATH="$PNPM_HOME/bin:$PATH"
+
+    if pnpm runtime set node lts -g; then
+        echo "Node.js installed via pnpm: $(node --version)"
+    else
+        echo "pnpm failed to install Node. Skipping Node installation."
+    fi
 else
-    echo "nvm not found. Skipping Node installation."
+    echo "pnpm not found. Skipping Node installation."
 fi
 
 # Install Rust via rustup

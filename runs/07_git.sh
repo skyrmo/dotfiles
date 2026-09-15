@@ -2,21 +2,20 @@
 
 echo "Setting up Git and GitHub SSH..."
 
-# Update git to the latest version
-echo "Installing/updating Git..."
-brew install git
-
-# Install the GitHub CLI
-echo "Installing GitHub CLI..."
-brew install gh
-
 # Create .ssh directory if it doesn't exist
 mkdir -p ~/.ssh
 
-# Create a new SSH key (will prompt for passphrase)
-echo "Creating new SSH key..."
-echo "Press Enter when prompted for passphrase if you don't want one"
-ssh-keygen -t ed25519 -C "owaingskyrme@gmail.com" -f ~/.ssh/id_ed25519
+# Create a new SSH key, but only if one isn't already there.
+if [[ -f "$HOME/.ssh/id_ed25519" ]]; then
+    echo "SSH key already exists at ~/.ssh/id_ed25519 - keeping it."
+else
+    echo "Creating new SSH key..."
+    echo "Press Enter when prompted for passphrase if you don't want one"
+    if ! ssh-keygen -t ed25519 -C "owaingskyrme@gmail.com" -f "$HOME/.ssh/id_ed25519"; then
+        echo "ssh-keygen failed, so there is no key to configure. Aborting."
+        exit 1
+    fi
+fi
 
 # Create SSH config file
 echo "Creating SSH config file..."

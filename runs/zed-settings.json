@@ -303,23 +303,6 @@
                     "color": "#E2E0DA"
                 }
             }
-        },
-
-        "Nord Dark": {
-            "created": "#56CCF2", // additions — blue
-            "modified": "#F1DEB9ff", // modifications — yellow
-
-            "syntax": {
-                "comment": {
-                    "color": "#454B64FF"
-                },
-                "string": {
-                    "color": "#D2DDBBFF"
-                },
-                "type": {
-                    "color": "#60A1A1FF"
-                }
-            }
         }
     }
 }
