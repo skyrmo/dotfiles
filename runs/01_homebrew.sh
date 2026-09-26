@@ -20,6 +20,7 @@ brew install git \
     unar \
     gh \
     pnpm \
+    fnm \
     btop \
     uv
 

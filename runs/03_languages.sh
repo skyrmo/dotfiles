@@ -2,7 +2,7 @@
 
 echo "Setting up programming language environments..."
 
-# Source the shell configuration to ensure uv and pnpm are available
+# Source the shell configuration to ensure uv and fnm are available
 source ~/.zprofile 2>/dev/null
 source ~/.zshrc 2>/dev/null
 
@@ -22,22 +22,28 @@ else
     echo "uv not found. Skipping Python installation."
 fi
 
-# Install Node via pnpm. The global bin dir must exist and be on PATH before
-# pnpm will agree to install a runtime into it. `runtime set` is the
-# replacement for the now-deprecated `env use`.
-if command -v pnpm &> /dev/null; then
-    echo "Installing Node.js (LTS) via pnpm..."
-    export PNPM_HOME="$HOME/Library/pnpm"
-    mkdir -p "$PNPM_HOME/bin"
-    export PATH="$PNPM_HOME/bin:$PATH"
+# Older setups had pnpm shim `node` into $PNPM_HOME/bin to manage the runtime
+# itself; fnm owns Node now, so clear out any leftover shim before it can
+# shadow fnm's node on PATH. No-op on a fresh machine, where this file never
+# existed in the first place.
+PNPM_HOME="$HOME/Library/pnpm"
+if [[ -L "$PNPM_HOME/bin/node" ]]; then
+    rm -f "$PNPM_HOME/bin/node" "$PNPM_HOME/bin/.pnpm-shim-v1-node-target"
+fi
 
-    if pnpm runtime set node lts -g; then
-        echo "Node.js installed via pnpm: $(node --version)"
+# Install Node via fnm. `fnm env` (sourced via ~/.zshrc above) must run first
+# so the fnm multishell dir is on PATH before `node`/`fnm` resolve.
+if command -v fnm &> /dev/null; then
+    echo "Installing Node.js (LTS) via fnm..."
+    if fnm install --lts; then
+        fnm default lts-latest
+        eval "$(fnm env --use-on-cd --shell zsh)"
+        echo "Node.js installed via fnm: $(node --version)"
     else
-        echo "pnpm failed to install Node. Skipping Node installation."
+        echo "fnm failed to install Node. Skipping Node installation."
     fi
 else
-    echo "pnpm not found. Skipping Node installation."
+    echo "fnm not found. Skipping Node installation."
 fi
 
 # Install Rust via rustup

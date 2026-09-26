@@ -15,11 +15,14 @@ export PATH="/opt/homebrew/bin:$PATH"
 # `python` on PATH at all and `python3` falls back to the old system one.
 export PATH="$HOME/.local/bin:$PATH"
 
-# ---------- pnpm (also manages the global Node version) ----------
-# pnpm is the standalone Homebrew build, so it ships its own Node and can
-# install the global `node` binary into $PNPM_HOME/bin itself.
+# ---------- pnpm (package manager only; fnm owns the Node runtime) ----------
 export PNPM_HOME="$HOME/Library/pnpm"
 [ -d "$PNPM_HOME/bin" ] && export PATH="$PNPM_HOME/bin:$PATH"
+
+# ---------- fnm (Node version manager) ----------
+# --use-on-cd switches Node versions automatically when entering a directory
+# with a .node-version/.nvmrc file.
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # ---------- Oh My Zsh ----------
 # Empty theme: starship owns the prompt, so loading an omz theme is wasted work.
