@@ -33,12 +33,16 @@ source $ZSH/oh-my-zsh.sh
 
 # ---------- aliases ----------
 alias py='uv run --no-project python'
+alias weather='curl wttr.in'
 
 # ---------- zsh plugins ----------
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
 # ---------- prompt ----------
 eval "$(starship init zsh)"
+
+# ---------- syntax highlighting ----------
+# Must be sourced last so it can wrap every zle widget defined above.
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 EOL
