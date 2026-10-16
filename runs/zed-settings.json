@@ -1,199 +1,49 @@
 {
+  // ==========================================================================
+  // General
+  // ==========================================================================
+
+  // Opening a folder with the `zed` CLI opens a new window.
   "cli_default_open_behavior": "new_window",
-  "soft_wrap": "bounded",
-  "show_wrap_guides": true,
-  "git_panel": {
-    "dock": "left"
-  },
-  "agent_servers": {
-    "claude-acp": {
-      "default_config_options": {
-        "model": "opus",
-        "effort": "medium",
-        "mode": "plan"
-      },
-      "type": "registry",
-      "default_mode": "plan",
-      "favorite_config_option_values": {
-        "model": ["opus"],
-        "effort": ["high"],
-        "mode": ["default", "plan"]
-      }
-    }
-  },
+  // Trust every folder, so the settings in a project's .zed/ folder apply without asking.
   "session": {
     "trust_all_worktrees": true
   },
-  "theme": "One Dark",
-
-  "tab_bar": {
-    "show_pinned_tabs_in_separate_row": false,
-    "show_nav_history_buttons": false,
-    "show": true
-  },
-
-  "title_bar": {
-    "show_user_menu": true,
-    "show_branch_status_icon": true,
-    "show_menus": false,
-    "show_sign_in": false,
-    "show_user_picture": false,
-    "show_onboarding_banner": false,
-    "show_project_items": true,
-    "show_branch_name": true
-  },
-
-  "status_bar": {
-    "show_active_file": false,
-    "cursor_position_button": true,
-    "active_language_button": true
-  },
-
-  "current_line_highlight": "all",
-  "selection_highlight": true,
-  "rounded_selection": true,
-  "cursor_shape": "bar",
-  "agent_buffer_font_size": 15.0,
-
-  "project_panel": {
-    "folder_indicator": "icon",
-    "hide_hidden": false,
-    "indent_size": 18.0,
-    "hide_gitignore": false,
-    "button": true,
-    "default_width": 240,
-    "dock": "left",
-    "entry_spacing": "standard",
-    "file_icons": true,
-    "git_status": true,
-    "auto_reveal_entries": true,
-    "auto_fold_dirs": true,
-    "scrollbar": {
-      "show": "never"
-    },
-    "sticky_scroll": true,
-    "show_diagnostics": "errors",
-    "indent_guides": {
-      "show": "always"
-    },
-    "hide_root": true,
-    "starts_open": true
-  },
-  "bottom_dock_layout": "contained",
-  "debugger": {
-    "dock": "right"
-  },
-  "auto_install_extensions": {
-    "html": true,
-    "wgsl": true,
-    "vue": true,
-    "oxc": true
-  },
-
-  "agent": {
-    "dock": "right",
-    "threads_sidebar": {
-      "position": "right"
-    }
-  },
-  "collaboration_panel": {
-    "button": false
-  },
+  // Don't send usage data or crash reports to Zed.
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-  "preferred_line_length": 100,
-  "format_on_save": "on",
-  "buffer_font_size": 17.0,
+
+  // ==========================================================================
+  // Theme and fonts
+  // ==========================================================================
+
+  "theme": "One Dark",
+
+  // Editor text.
   "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 17.0,
   "buffer_font_weight": 380.0,
   "buffer_font_features": {
-    "liga": true
+    "liga": true // ligatures on
   },
   "buffer_line_height": {
     "custom": 1.4
   },
-  "agent_ui_font_size": 15.0,
-  "ui_font_size": 15.0,
-  "ui_font_family": "TX-02 SemiCondensed",
-  "show_whitespaces": "selection",
-  "terminal": {
-    "toolbar": {
-      "breadcrumbs": false
-    },
-    "button": true,
-    "font_size": 15,
-    "font_family": "TX-02 Condensed",
-    "dock": "bottom",
-    "working_directory": "current_project_directory"
-  },
-  "git": {
-    "branch_picker": {
-      "show_author_name": true
-    },
-    "blame": {
-      "show_avatar": false
-    },
-    "inline_blame": {
-      "enabled": false
-    },
-    "git_gutter": "tracked_files"
-  },
-  "gutter": {
-    "line_numbers": true,
-    "runnables": false,
-    "breakpoints": false,
-    "folds": true,
-    "min_line_number_digits": 3
-  },
-  "lsp": {
-    "rust-analyzer": {
-      "initialization_options": {
-        "inlayHints": {
-          "maxLength": null,
-          "lifetimeElisionHints": {
-            "useParameterNames": true,
-            "enable": "skip_trivial"
-          },
-          "closureReturnTypeHints": {
-            "enable": "always"
-          }
-        }
-      }
-    }
-  },
-  "scrollbar": {
-    "show": "auto",
-    "cursors": false,
-    "git_diff": false,
-    "search_results": false,
-    "selected_symbol": true,
-    "diagnostics": "error",
-    "axes": {
-      "horizontal": true,
-      "vertical": true
-    }
-  },
-  "toolbar": {
-    "breadcrumbs": true,
-    "quick_actions": false
-  },
-  "diagnostics": {
-    "button": true,
-    "include_warnings": true,
-    "inline": {
-      "enabled": false,
-      "max_severity": "warning" // ----- can change to error.
-    }
-  },
-  "inlay_hints": {
-    "enabled": false,
-    "toggle_on_modifiers_press": { "control": true }
-  },
 
+  // Panels, menus and tabs.
+  "ui_font_family": "TX-02 SemiCondensed",
+  "ui_font_size": 15.0,
+
+  // Agent panel text.
+  "agent_ui_font_size": 15.0,
+  "agent_buffer_font_size": 15.0,
+
+  // Colour tweaks on top of One Dark.
   "theme_overrides": {
     "One Dark": {
+      // Git gutter colours.
       "created": "#56CCF2", // additions — blue
       "created.background": "#56CCF215",
       "created.border": "#56CCF2",
@@ -202,6 +52,7 @@
       "modified.background": "#F1DEB915",
       "modified.border": "#F1DEB9ff",
 
+      // Syntax colours.
       "syntax": {
         "comment": {
           "color": "#3E4552ff",
@@ -220,6 +71,258 @@
         "hint": {
           //   "color": "#334D4Cff",
           "font_style": "italic"
+        }
+      }
+    }
+  },
+
+  // ==========================================================================
+  // Editor
+  // ==========================================================================
+
+  "cursor_shape": "bar",
+  "current_line_highlight": "all",
+  // Highlight other copies of the selected text.
+  "selection_highlight": true,
+  "rounded_selection": true,
+  // Show spaces and tabs only inside a selection.
+  "show_whitespaces": "selection",
+
+  // Wrap long lines at preferred_line_length, and draw a guide there.
+  "preferred_line_length": 100,
+  "soft_wrap": "bounded",
+  "show_wrap_guides": true,
+
+  "format_on_save": "on",
+
+  // Type hints are hidden. Hold Control to show them.
+  "inlay_hints": {
+    "enabled": false,
+    "toggle_on_modifiers_press": { "control": true }
+  },
+
+  // The strip left of the text.
+  "gutter": {
+    "line_numbers": true,
+    "min_line_number_digits": 3,
+    "folds": true,
+    "runnables": false,
+    "breakpoints": false
+  },
+
+  "scrollbar": {
+    "show": "auto",
+    "axes": {
+      "horizontal": true,
+      "vertical": true
+    },
+    // Markers drawn on the scrollbar.
+    "selected_symbol": true,
+    "diagnostics": "error",
+    "cursors": false,
+    "git_diff": false,
+    "search_results": false
+  },
+
+  // Bar above the editor.
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  },
+
+  // Errors and warnings.
+  "diagnostics": {
+    "button": true,
+    "include_warnings": true,
+    // Messages written at the end of the line.
+    "inline": {
+      "enabled": false,
+      "max_severity": "warning" // ----- can change to error.
+    }
+  },
+
+  // ==========================================================================
+  // Window: title bar, tabs, status bar
+  // ==========================================================================
+
+  "title_bar": {
+    "show_menus": false,
+    "show_project_items": true,
+    "show_branch_name": true,
+    "show_branch_status_icon": true,
+    "show_user_menu": true,
+    "show_user_picture": false,
+    "show_sign_in": false,
+    "show_onboarding_banner": false
+  },
+
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_pinned_tabs_in_separate_row": false
+  },
+
+  "status_bar": {
+    "show_active_file": false,
+    "cursor_position_button": true,
+    "active_language_button": true
+  },
+
+  // ==========================================================================
+  // Panels and docks
+  // Left: files, git. Right: agent, debugger. Bottom: terminal.
+  // ==========================================================================
+
+  // The bottom dock sits between the left and right docks rather than spanning the full width.
+  "bottom_dock_layout": "contained",
+
+  // File tree.
+  "project_panel": {
+    "dock": "left",
+    "default_width": 240,
+    "starts_open": true,
+    "button": true,
+    "hide_root": true,
+    "hide_hidden": true,
+    "hide_gitignore": false,
+    "auto_reveal_entries": true,
+    "auto_fold_dirs": true,
+    "sticky_scroll": true,
+    "entry_spacing": "standard",
+    "indent_size": 18.0,
+    "indent_guides": {
+      "show": "always"
+    },
+    "file_icons": true,
+    "folder_indicator": "icon",
+    "git_status": true,
+    "show_diagnostics": "errors",
+    "scrollbar": {
+      "show": "never"
+    }
+  },
+
+  "git_panel": {
+    "dock": "left"
+  },
+
+  "agent": {
+    "dock": "right",
+    "threads_sidebar": {
+      "position": "right"
+    }
+  },
+
+  "debugger": {
+    "dock": "right"
+  },
+
+  "terminal": {
+    "dock": "bottom",
+    "button": true,
+    "font_family": "TX-02 Condensed",
+    "font_size": 15,
+    // Open new terminals in the project's root folder.
+    "working_directory": "current_project_directory",
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+
+  "collaboration_panel": {
+    "button": false
+  },
+
+  // ==========================================================================
+  // Git
+  // ==========================================================================
+
+  "git": {
+    // Only mark changes in files git already tracks.
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false
+    },
+    "blame": {
+      "show_avatar": false
+    },
+    "branch_picker": {
+      "show_author_name": true
+    }
+  },
+
+  // ==========================================================================
+  // AI agent (Claude Code via ACP)
+  // ==========================================================================
+
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+      // New threads start in plan mode.
+      "default_mode": "plan",
+      "default_config_options": {
+        "model": "opus",
+        "effort": "medium",
+        "mode": "plan"
+      },
+      // Values pinned at the top of the pickers.
+      "favorite_config_option_values": {
+        "model": ["opus"],
+        "effort": ["high"],
+        "mode": ["default", "plan"]
+      }
+    }
+  },
+
+  // ==========================================================================
+  // Languages and language servers
+  // ==========================================================================
+
+  // Install these extensions automatically.
+  "auto_install_extensions": {
+    "html": true,
+    "wgsl": true,
+    "vue": true,
+    "oxc": true // oxlint and oxfmt
+  },
+
+  // Turn off the Tailwind server everywhere. Per-language lists below override this,
+  // because Zed's own per-language defaults would otherwise win.
+  // "!name" turns a server off. "..." keeps all the other default servers.
+  "language_servers": ["!tailwindcss-language-server", "..."],
+
+  "languages": {
+    "Python": {
+      "tab_size": 4
+    },
+    // oxc replaces ESLint. Tailwind isn't used.
+    "JavaScript": {
+      "language_servers": ["!eslint", "!tailwindcss-language-server", "..."]
+    },
+    "TypeScript": {
+      "language_servers": ["!eslint", "!tailwindcss-language-server", "..."]
+    },
+    "CSS": {
+      "language_servers": ["!tailwindcss-language-server", "!tailwindcss-intellisense-css", "..."]
+    },
+    "Vue.js": {
+      "language_servers": ["!tailwindcss-language-server", "!tailwindcss-intellisense-css", "..."]
+    }
+  },
+
+  // Options passed to individual language servers.
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "useParameterNames": true,
+            "enable": "skip_trivial"
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
         }
       }
     }
