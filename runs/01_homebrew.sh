@@ -19,9 +19,8 @@ brew install git \
     starship \
     unar \
     gh \
-    pnpm \
-    fnm \
     btop \
+    vite-plus \
     uv
 
 # Install applications via Homebrew Cask

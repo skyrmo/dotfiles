@@ -2,7 +2,7 @@
 
 echo "Setting up programming language environments..."
 
-# Source the shell configuration to ensure uv and fnm are available
+# Source the shell configuration to ensure uv and vp are available
 source ~/.zprofile 2>/dev/null
 source ~/.zshrc 2>/dev/null
 
@@ -23,27 +23,32 @@ else
 fi
 
 # Older setups had pnpm shim `node` into $PNPM_HOME/bin to manage the runtime
-# itself; fnm owns Node now, so clear out any leftover shim before it can
-# shadow fnm's node on PATH. No-op on a fresh machine, where this file never
+# itself; Vite+ owns Node now, so clear out any leftover shim before it can
+# shadow Vite+'s node on PATH. No-op on a fresh machine, where this file never
 # existed in the first place.
 PNPM_HOME="$HOME/Library/pnpm"
 if [[ -L "$PNPM_HOME/bin/node" ]]; then
     rm -f "$PNPM_HOME/bin/node" "$PNPM_HOME/bin/.pnpm-shim-v1-node-target"
 fi
 
-# Install Node via fnm. `fnm env` (sourced via ~/.zshrc above) must run first
-# so the fnm multishell dir is on PATH before `node`/`fnm` resolve.
-if command -v fnm &> /dev/null; then
-    echo "Installing Node.js (LTS) via fnm..."
-    if fnm install --lts; then
-        fnm default lts-latest
-        eval "$(fnm env --use-on-cd --shell zsh)"
-        echo "Node.js installed via fnm: $(node --version)"
+# Same for setups that used fnm before Vite+: its per-shell symlink dirs are
+# useless now.
+rm -rf "$HOME/.local/state/fnm_multishells"
+
+# Install Node via Vite+. `vp env setup` creates the shims and the env file
+# that ~/.zshrc sources; re-source it so `node` resolves in this script.
+if command -v vp &> /dev/null; then
+    echo "Installing Node.js (LTS) via Vite+..."
+    vp env setup
+    . "$HOME/.config/vite-plus/env"
+    vp env default lts
+    if vp env install; then
+        echo "Node.js installed via Vite+: $(node --version)"
     else
-        echo "fnm failed to install Node. Skipping Node installation."
+        echo "Vite+ failed to install Node. Skipping Node installation."
     fi
 else
-    echo "fnm not found. Skipping Node installation."
+    echo "vp not found. Skipping Node installation."
 fi
 
 # Install Rust via rustup

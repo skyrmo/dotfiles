@@ -15,14 +15,16 @@ export PATH="/opt/homebrew/bin:$PATH"
 # `python` on PATH at all and `python3` falls back to the old system one.
 export PATH="$HOME/.local/bin:$PATH"
 
-# ---------- pnpm (package manager only; fnm owns the Node runtime) ----------
+# ---------- pnpm (global bins only; Vite+ owns Node and pnpm itself) ----------
 export PNPM_HOME="$HOME/Library/pnpm"
 [ -d "$PNPM_HOME/bin" ] && export PATH="$PNPM_HOME/bin:$PATH"
 
-# ---------- fnm (Node version manager) ----------
-# --use-on-cd switches Node versions automatically when entering a directory
-# with a .node-version/.nvmrc file.
-eval "$(fnm env --use-on-cd --shell zsh)"
+# ---------- Vite+ (Node + package manager shims) ----------
+# Also sourced from ~/.zshenv by `vp env setup`, but re-sourced here so the
+# shims end up ahead of the homebrew/path_helper entries above. Guarded because
+# the file only exists after `vp env setup` (runs/03_languages.sh).
+[ -f "$HOME/.config/vite-plus/env" ] && . "$HOME/.config/vite-plus/env"
+
 
 # ---------- Oh My Zsh ----------
 # Empty theme: starship owns the prompt, so loading an omz theme is wasted work.
