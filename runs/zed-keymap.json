@@ -12,6 +12,7 @@
     }
   },
   {
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       "shift-h": "project_panel::ToggleHideHidden"
     }
