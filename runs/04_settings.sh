@@ -25,7 +25,6 @@ defaults write -g AppleAccentColor -int -1
 defaults write -g AppleAquaColorVariant -int 6
 defaults write -g AppleIconAppearanceTheme -string "ClearAutomatic"
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool true
-defaults write -g NSGlassBuddyTintAmount -float 0.7
 
 # Keyboard
 defaults write -g AppleKeyboardUIMode -int 0
