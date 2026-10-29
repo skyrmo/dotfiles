@@ -22,19 +22,6 @@ else
     echo "uv not found. Skipping Python installation."
 fi
 
-# Older setups had pnpm shim `node` into $PNPM_HOME/bin to manage the runtime
-# itself; Vite+ owns Node now, so clear out any leftover shim before it can
-# shadow Vite+'s node on PATH. No-op on a fresh machine, where this file never
-# existed in the first place.
-PNPM_HOME="$HOME/Library/pnpm"
-if [[ -L "$PNPM_HOME/bin/node" ]]; then
-    rm -f "$PNPM_HOME/bin/node" "$PNPM_HOME/bin/.pnpm-shim-v1-node-target"
-fi
-
-# Same for setups that used fnm before Vite+: its per-shell symlink dirs are
-# useless now.
-rm -rf "$HOME/.local/state/fnm_multishells"
-
 # Install Node via Vite+. `vp env setup` creates the shims and the env file
 # that ~/.zshrc sources; re-source it so `node` resolves in this script.
 if command -v vp &> /dev/null; then
